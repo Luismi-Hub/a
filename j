@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelli: Tu Plataforma de Comunicación Inteligente</title> <!-- Título actualizado -->
+    <style>
+        /* --- CSS ANTERIOR VA AQUÍ --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: #0779e4 3px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 0.5rem 0;
+            text-align: center;
+            margin-bottom: 20px;
+            position: sticky; /* Make nav sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            margin:0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+         nav a:hover {
+            color: #0779e4;
+        }
+
+
+        section {
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .hero {
+            background: linear-gradient(to right, #005aa7, #0779e4);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px 60px 20px; /* Increased top padding */
+            border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+            position: relative; /* For potential pseudo-elements or absolutely positioned items */
+        }
+         .hero-visual-placeholder { /* Placeholder for hero image/video */
+            max-width: 600px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border: 1px dashed #fff;
+            margin: 30px auto 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+        }
+        .hero-visual-placeholder img { /* Style for actual image */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffc107; /* Yellow for primary CTA */
+            color: #333;
+            padding: 14px 28px; /* Slightly larger buttons */
+            text-decoration: none;
+            border-radius: 25px; /* More rounded buttons */
+            font-weight: bold;
+            margin: 10px 5px; /* Increased margin */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background: #e0a800;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        .cta-button.secondary {
+            background: transparent; /* Transparent secondary CTA */
+            color: #fff;
+            border: 2px solid #ffc107; /* Yellow border */
+        }
+        .cta-button.secondary:hover {
+            background: #ffc107;
+            color: #333;
+        }
+
+
+        h2 {
+            color: #0779e4;
+            text-align: center;
+            margin-bottom: 40px; /* Increased margin */
+            font-size: 2.4rem; /* Slightly larger */
+        }
+
+        h3 {
+            color: #1a5f7a; /* Darker shade of blue */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.9rem; /* Slightly larger */
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid; /* Using grid for better layout */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 20px;
+        }
+        .feature-list li {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-left: 5px solid #0779e4;
+            border-radius: 4px;
+            display: flex; /* For icon and text alignment */
+            flex-direction: column;
+        }
+        .feature-list .feature-header{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .feature-list strong {
+            font-size: 1.4rem; /* Increased font size */
+            color: #005aa7;
+        }
+        .feature-list .icon { /* For icon suggestions */
+            font-size: 2em; /* Larger icons */
+            margin-right: 15px;
+            color: #0779e4;
+            min-width: 30px; /* Ensure space for icon */
+        }
+        .feature-list p {
+            margin-bottom: 5px;
+        }
+
+
+        .how-it-works ol {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+        .how-it-works li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding: 20px; /* Increased padding */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 60px; /* Space for the counter */
+            background: #fff;
+        }
+        .how-it-works li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0779e4;
+            color: white;
+            width: 35px; /* Larger counter */
+            height: 35px; /* Larger counter */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        /* Suggestion for GIF placeholder */
+        .gif-placeholder {
+            display: block;
+            width: 100%;
+            max-width: 350px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            background: #e9ecef;
+            border: 1px dashed #ccc;
+            margin: 15px 0;
+            text-align: center;
+            line-height: 200px; /* Vertically center text */
+            color: #777;
+            border-radius: 4px;
+        }
+        .mobile-app-showcase {
+            text-align: center;
+        }
+        .mobile-app-showcase img {
+            max-width: 250px; /* Adjust as needed */
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 15px; /* For a mobile screen look */
+        }
+
+
+        .testimonials {
+            background-color: #e9f5ff; /* Light blue background for testimonials */
+            padding: 40px 20px;
+            border-radius: 8px;
+        }
+        .testimonial-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             gap: 20px;
+        }
+        .testimonial {
+            background: #fff; /* White background for individual testimonials */
+            padding: 25px;
+            margin-bottom: 0; /* Handled by grid gap */
+            border-radius: 8px;
+            border-left: 5px solid #0779e4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .testimonial p:first-child {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial strong {
+            display: block;
+            margin-top: 10px;
+            color: #005aa7;
+        }
+        .testimonial .profile-pic-placeholder { /* Placeholder for profile picture */
+            width: 60px;
+            height: 60px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 auto 10px auto; /* Center if text-align is center on parent */
+            /* Or float left for side by side with name */
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .plan {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 30px; /* Increased padding */
+            text-align: center;
+            flex: 1;
+            min-width: 280px; /* Minimum width for smaller screens */
+            max-width: 360px; /* Slightly wider max */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* More pronounced shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .plan.popular { /* For highlighting a plan */
+            border-top: 5px solid #ffc107; /* Highlight color */
+        }
+
+        .plan h3 {
+            color: #0779e4;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        .plan .price {
+            font-size: 2.8rem; /* Larger price */
+            font-weight: bold;
+            color: #333;
+            margin: 15px 0;
+        }
+        .plan .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .plan ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .plan ul li::before { /* Checkmark or cross */
+            content: '✓'; /* Default checkmark */
+            color: #28a745; /* Green */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .plan ul li.not-included::before {
+            content: '✕'; /* Cross for not included features */
+            color: #dc3545; /* Red */
+        }
+        .plan .cta-button {
+            width: 80%;
+            margin-top: 10px;
+        }
+
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .faq-question {
+            background: #f8f9fa;
+            padding: 15px 20px; /* Increased padding */
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px 4px 0 0;
+             transition: background-color 0.2s;
+        }
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        .faq-question::after { /* Arrow indicator */
+            content: '▼';
+            font-size: 0.9em;
+            transition: transform 0.2s;
+            color: #0779e4;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0px 20px; /* Increased padding for active state */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smoother transition */
+            border-top: 1px solid #eee;
+        }
+        .faq-item.active .faq-answer {
+            padding: 20px 20px;
+            max-height: 300px; /* Adjust if answers are very long */
+        }
+
+
+        footer {
+            background: #2c3e50; /* Darker footer */
+            color: #ecf0f1; /* Lighter text */
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 8px 0;
+        }
+        footer a {
+            color: #3498db; /* Brighter link color */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            color: #5dade2;
+        }
+        .social-icons a {
+            margin: 0 12px;
+            font-size: 1.8rem; /* Example size, replace with actual icons */
+            color: #ecf0f1;
+            transition: color 0.2s;
+        }
+        .social-icons a:hover {
+            color: #3498db;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan {
+                width: 90%; /* Plans take more width on mobile */
+                max-width: none;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .feature-list {
+                grid-template-columns: 1fr; /* Stack features on mobile */
+            }
+            .testimonial-grid {
+                 grid-template-columns: 1fr; /* Stack testimonials on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Intelli  <!-- Puedes usar un SVG o una imagen para el logo --></div>
+        </div>
+    </header>
+     <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#features">Características</a></li>
+                <li><a href="#platform">Plataforma</a></li> <!-- Nuevo enlace -->
+                <li><a href="#how-it-works">Cómo Funciona</a></li>
+                <li><a href="#use-cases">Casos de Uso</a></li>
+                <li><a href="#pricing">Planes</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1><strong>Tu Comunicación, Inteligente y Conectada: Email, Móvil y Voz con IA</strong></h1>
+            <p>Intelli es más que una extensión de Gmail. Es tu plataforma unificada de comunicación inteligente que te devuelve el control sobre tus emails, llamadas y tareas. Redacta más rápido, organiza mejor, nunca olvides un seguimiento y gestiona todo desde donde estés, incluso con tu voz.</p>
+            <p>¿Sientes que la gestión de comunicaciones te consume? ¿Pasas horas redactando correos, transcribiendo llamadas y tratando de conectar los puntos? Intelli integra IA avanzada en tu Gmail, app móvil y asistente de voz para automatizar, potenciar y unificar tu flujo de trabajo.</p>
+            <a href="#download-link-placeholder" class="cta-button">🚀 Prueba Intelli Gratis Ahora</a>
+            <a href="#video-link-placeholder" class="cta-button secondary">🎥 Ver la Plataforma en Acción</a>
+             <div class="hero-visual-placeholder">
+                <!-- Puedes usar una imagen que muestre una pantalla de Gmail, una app móvil y un icono de voz -->
+                <img src="placeholder-hero-unified.png" alt="Plataforma Intelli Unificada">
+             </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="problem">
+            <h2>El Problema: Comunicación Fragmentada, Tiempo Perdido</h2>
+            <p>En el mundo actual, la comunicación es multicanal, pero nuestras herramientas suelen estar desconectadas, creando una batalla diaria:</p>
+            <ul>
+                <li>🤯 **Sobrecarga de Emails y Notificaciones:** Cientos de correos, recordatorios de llamadas, tareas pendientes en diferentes sitios. Es difícil priorizar.</li>
+                <li>✍️ **Redacción Ineficiente:** Correos repetitivos, dificultad para encontrar el tono adecuado y el contexto correcto rápidamente.</li>
+                <li>📞 **Gestión de Llamadas Aislada:** Transcripciones manuales, olvido de detalles importantes post-llamada, dificultad para convertir conversaciones en acciones.</li>
+                <li>💣 **Tareas Ocultas en Conversaciones:** Compromisos, fechas límite, preguntas importantes... enterrados en hilos de emails y notas de llamadas.</li>
+                <li>🔄 **Falta de Sincronización:** Información en tu email, otra en tu móvil, notas de voz por separado. Conectar los puntos es un trabajo en sí mismo.</li>
+            </ul>
+            <p><strong>Si luchas con esto, no estás solo. Intelli ofrece una solución integral.</strong></p>
+        </section>
+
+        <section id="solution">
+            <h2>La Solución: Intelli – Tu Ecosistema de Comunicación Inteligente y Conectado</h2>
+            <p>Intelli es tu **asistente personal de comunicación inteligente**, una plataforma que unifica tu Gmail, una potente aplicación móvil y una avanzada interacción por voz. Todo impulsado por IA y conectado a tu base de conocimiento.</p>
+            <p>Imagina:</p>
+            <ul>
+                <li>Tu **Gmail se vuelve un centro de mando**: redacta emails con IA, crea tareas contextuales y organiza tu bandeja de entrada visualmente.</li>
+                <li>Con la **aplicación móvil Intelli**, graba llamadas, obtén transcripciones automáticas y diarizadas, genera resúmenes IA y sincroniza todo con tu plataforma.</li>
+                <li>Usa tu **voz para gestionar tu día**: pide resúmenes, crea tareas, e incluso inicia llamadas a través de nuestro asistente IA, tanto en el móvil como en la web (para administradores).</li>
+                <li>La IA no solo entiende el texto, sino también el contexto de tus llamadas y fine-tunings, ofreciendo una **inteligencia verdaderamente personalizada y accionable** a través de todos los canales.</li>
+            </ul>
+            <p><strong>Intelli transforma tus herramientas de comunicación aisladas en un ecosistema cohesivo e inteligente, devolviéndote tiempo y enfoque.</strong></p>
+            <!-- Sugerencia visual: Un diagrama que muestre "Gmail" -> "App Móvil" -> "Voz" todos conectados a un "Núcleo IA Intelli" y "Firestore". -->
+             <div class="gif-placeholder" style="max-width: 700px; height: 350px; line-height: 350px;">Diagrama del Ecosistema Intelli</div>
+        </section>
+
+        <section id="features">
+            <h2>Características Principales de la Plataforma Intelli</h2>
+            <p>Descubre cómo Intelli potencia cada aspecto de tu comunicación:</p>
+            <ul class="feature-list">
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">💡</span>
+                        <strong>Asistente de Redacción IA (Gmail)</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> Dentro de Gmail, genera o mejora respuestas con IA personalizada basada en el contexto del email y tus directrices de Firestore.</p>
+                    <p><strong>Beneficio: Ahorra horas en redacción</strong> y envía correos profesionales y coherentes.</p>
+                </li>
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">✅</span>
+                        <strong>Creación Inteligente de Tareas (Gmail)</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> Detecta y crea tareas desde tus emails, vinculándolas al hilo original. Gestiónalas desde el popup de la extensión.</p>
+                    <p><strong>Beneficio: Nunca olvides un seguimiento</strong> y transforma conversaciones en acciones.</p>
+                </li>
+                <li>
+                     <div class="feature-header">
+                        <span class="icon">📱</span> <!-- Icono de móvil -->
+                        <strong>App Móvil Avanzada</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> Graba llamadas, obtén transcripciones automáticas y diarizadas. Genera resúmenes IA y crea tareas directamente desde la app. Sincronización total con la web.</p>
+                    <p><strong>Beneficio: Productividad en movimiento.</strong> Captura información valiosa de llamadas y conviértela en acciones, estés donde estés.</p>
+                </li>
+                <li>
+                     <div class="feature-header">
+                        <span class="icon">🎙️</span> <!-- Icono de micrófono/voz -->
+                        <strong>Interacción por Voz con IA</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> Interactúa con tu asistente Intelli usando tu voz. Pide resúmenes de clientes, consulta tu carga de trabajo, crea tareas, e incluso inicia llamadas (bots IA o a contactos) – ideal para administradores y usuarios avanzados.</p>
+                    <p><strong>Beneficio: Manos libres, máxima eficiencia.</strong> Gestiona tu trabajo de forma conversacional y natural.</p>
+                </li>
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">🤖</span> <!-- Icono de bot/llamada automatizada -->
+                        <strong>Llamadas Potenciadas por IA (Bots)</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> (Planes Avanzados) Programa y realiza llamadas salientes utilizando bots de IA configurables para tareas como recordatorios, encuestas o cualificación inicial. Transcripciones y análisis IA incluidos.</p>
+                    <p><strong>Beneficio: Automatiza comunicaciones repetitivas</strong> y escala tu alcance sin incrementar el trabajo manual.</p>
+                </li>
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">🌐</span> <!-- Icono de conexión/sincronización -->
+                        <strong>Plataforma Unificada y Sincronizada</strong>
+                    </div>
+                    <p><strong>Descripción:</strong> Toda tu información – emails, tareas, resúmenes de llamadas, notas de voz – se sincroniza fluidamente entre la extensión de Gmail, la app móvil y el panel de administración web.</p>
+                    <p><strong>Beneficio: Consistencia y acceso total.</strong> Tu trabajo te sigue, no al revés. Datos actualizados y disponibles en cualquier dispositivo.</p>
+                </li>
+                 <li>
+                    <span class="icon">🎨</span>
+                     <strong>Organización Visual y Menú Contextual (Gmail)</strong>
+                    <p><strong>Descripción:</strong> (Próximamente en Pro) Codifica por colores tus emails y accede a acciones IA con clic derecho para una gestión de bandeja de entrada superior.</p>
+                    <p><strong>Beneficio: Claridad y rapidez</strong> en tu día a día en Gmail.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- NUEVA SECCIÓN PARA DESTACAR LA PLATAFORMA -->
+        <section id="platform">
+            <h2>Una Plataforma, Múltiples Puntos de Acceso Inteligentes</h2>
+            <p>Intelli no es solo una herramienta, es un ecosistema diseñado para tu productividad total. Tus datos y tu inteligencia artificial personalizada te acompañan dondequiera que trabajes.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; text-align: center;">
+                <div style="flex: 1; min-width: 250px; padding:15px; background-color:#f0f8ff; border-radius:8px;">
+                    <!-- Icono de Gmail/Extensión -->
+                    <h3>🚀 En Tu Gmail</h3>
+                    <p>El corazón de tu comunicación diaria, ahora supercargado. Redacción asistida, creación de tareas, organización visual y mucho más, sin salir de tu bandeja de entrada.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding:15px; background-color:#e6ffe6; border-radius:8px;">
+                     <!-- Icono de App Móvil -->
+                    <h3>📱 En Tu Móvil</h3>
+                    <p>Lleva la inteligencia contigo. Graba y transcribe llamadas, crea tareas, revisa resúmenes y mantente sincronizado estés donde estés. La productividad no se detiene.</p>
+                      <div class="mobile-app-showcase">
+                        <img src="placeholder-mobile-screen1.png" alt="App móvil Intelli - Pantalla 1">
+                        <img src="placeholder-mobile-screen2.png" alt="App móvil Intelli - Pantalla 2">
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; padding:15px; background-color:#fff0e6; border-radius:8px;">
+                     <!-- Icono de Voz/Asistente -->
+                    <h3>🗣️ Con Tu Voz</h3>
+                    <p>La forma más natural de interactuar. Pide a tu asistente Intelli que gestione tareas, te dé información o inicie comunicaciones, todo mediante comandos de voz intuitivos.</p>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:30px;"><strong>Toda tu información, como tareas y contexto de cliente, se mantiene sincronizada y accesible a través de cada punto de contacto gracias a nuestra robusta arquitectura en Firestore.</strong></p>
+        </section>
+
+
+        <section id="how-it-works" class="how-it-works">
+            <h2>¿Cómo Funciona Intelli? (Simple, Mágico y Conectado)</h2>
+            <p>Empezar con la plataforma Intelli es sencillo y se adapta a tu forma de trabajar:</p>
+            <ol>
+                <li>
+                    <strong>Instala la Extensión de Gmail:</strong>
+                    <p>Añade Intelli a tu navegador. Este es tu principal centro de mando para la comunicación por email.</p>
+                    <div class="gif-placeholder">GIF: Instalación desde Chrome Web Store</div>
+                </li>
+                <li>
+                    <strong>Descarga la App Móvil (Opcional, Recomendado):</strong>
+                    <p>Disponible para iOS y Android. Extiende tu productividad a tus llamadas y trabajo en movimiento.</p>
+                    <div class="gif-placeholder">QR Codes o Botones de Tiendas de Apps</div>
+                </li>
+                <li>
+                    <strong>Conecta tu Cuenta y Personaliza (Opcional, Recomendado):</strong>
+                    <p>Inicia sesión de forma segura. Conecta Intelli a tu base de datos de contexto en Firestore para una IA hiper-personalizada en todos los canales.</p>
+                    <div class="gif-placeholder">Captura: Login y Conexión Firestore</div>
+                </li>
+                <li>
+                    <strong>Comienza a Experimentar la Magia:</strong>
+                    <p>Usa los botones de IA en Gmail, graba llamadas en la app móvil, prueba los comandos de voz. Todo está diseñado para ser intuitivo.</p>
+                    <div class="gif-placeholder">Mosaico: Botón IA, App grabando, Icono de Voz</div>
+                </li>
+                 <li>
+                    <strong>Gestiona y Administra (Planes de Equipo):</strong>
+                    <p>Accede al panel de administración web para configurar usuarios, roles, fine-tuning de IA y ver analíticas de toda la plataforma.</p>
+                    <div class="gif-placeholder">Captura: Dashboard de Administración</div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="use-cases">
+            <h2>Casos de Uso: Intelli Potenciando Diferentes Roles</h2>
+            <p>Intelli se adapta a tus necesidades, ya seas un profesional individual o parte de un gran equipo:</p>
+            <div>
+                <h3>🚀 Vendedor Moderno:</h3>
+                <ul>
+                    <li>Usa la extensión de Gmail para redactar seguimientos personalizados.</li>
+                    <li>Graba llamadas con clientes usando la app móvil; obtén transcripciones y resúmenes IA al instante.</li>
+                    <li>Crea tareas de seguimiento desde el email o el resumen de la llamada, todo sincronizado.</li>
+                    <li>Pide a tu asistente de voz "Resumen del cliente X antes de mi próxima llamada".</li>
+                </ul>
+            </div>
+            <div>
+                <h3>🤝 Soporte al Cliente Proactivo:</h3>
+                <ul>
+                    <li>Responde tickets en Gmail con ayuda de la IA y el historial del cliente.</li>
+                    <li>Si una llamada es necesaria, grábala con la app móvil. El resumen y la transcripción se adjuntan al perfil del cliente.</li>
+                    <li>Configura bots de IA para llamadas de seguimiento de satisfacción o para informar sobre la resolución de un ticket.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>📊 Gerente Estratégico:</h3>
+                <ul>
+                    <li>Visualiza la carga de trabajo de tu equipo y la eficiencia de comunicación desde el panel de admin.</li>
+                    <li>Usa el asistente de voz para pedir "Tareas asignadas a Carlos esta semana" o "Estado de la cuenta Cliente Alfa".</li>
+                    <li>Define fine-tunings globales para la IA que se aplican a las comunicaciones de todo el equipo.</li>
+                    <li>Revisa transcripciones de llamadas clave para asegurar calidad y detectar oportunidades de mejora.</li>
+                </ul>
+            </div>
+            <p><strong>Intelli unifica tus herramientas, permitiéndote ser más eficiente y enfocado, sin importar cómo o dónde trabajes.</strong></p>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Lo que Dicen Nuestros Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"La combinación de la extensión de Gmail y la app móvil ha revolucionado mi flujo de ventas. Grabo mis llamadas, las tareas se sugieren solas y mis correos son impecables. ¡Intelli es mi arma secreta!"</p>
+                    <strong>- Sofía R., Ejecutiva de Cuentas</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Como manager, la capacidad de usar comandos de voz para obtener resúmenes rápidos y la sincronización de todo el equipo es increíble. Finalmente tenemos una visión 360 de nuestras comunicaciones."</p>
+                    <strong>- David L., Gerente de Operaciones</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Usar bots de IA para llamadas de recordatorio nos ha liberado muchísimo tiempo. Y tener las transcripciones y análisis listos en la plataforma es oro puro. Intelli entiende nuestras necesidades."</p>
+                    <strong>- Elena C., Directora de Customer Success</strong>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:20px;"><strong>Miles de profesionales y equipos ya confían en Intelli para optimizar su comunicación.</strong></p>
+        </section>
+
+        <section id="differentiators">
+            <h2>¿Por Qué Elegir la Plataforma Intelli?</h2>
+            <p>Intelli va más allá de ser una simple herramienta, ofreciendo una solución integral:</p>
+            <ul class="feature-list" style="grid-template-columns: 1fr;"> <!-- Single column for differentiators for more text space -->
+                 <li>
+                    <div class="feature-header">
+                        <span class="icon">🌍</span>
+                        <strong>Ecosistema Unificado, No Herramientas Aisladas:</strong>
+                    </div>
+                    <p>Gmail, app móvil, voz y panel de administración, todo conectado y sincronizado. Di adiós a la fragmentación de datos y flujos de trabajo rotos.</p>
+                </li>
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">🧠</span>
+                        <strong>IA Contextual y Multimodal:</strong>
+                    </div>
+                    <p>Nuestra IA no solo procesa texto; entiende el contexto de tus emails, llamadas y tu base de conocimiento (RAG con Firestore), ofreciendo una asistencia verdaderamente inteligente a través de todos los canales.</p>
+                </li>
+                <li>
+                    <div class="feature-header">
+                        <span class="icon">🗣️</span>
+                        <strong>Interacción Natural y Flexible:</strong>
+                    </div>
+                    <p>Elige cómo interactuar: teclado, clics, toques en el móvil, o tu propia voz. Intelli se adapta a ti, no al revés.</p>
+                </li>
+                 <li>
+                    <div class="feature-header">
+                        <span class="icon">📈</span>
+                        <strong>Escalabilidad y Control para Equipos:</strong>
+                    </div>
+                    <p>Desde el profesional individual hasta grandes equipos, Intelli crece contigo. Los planes avanzados ofrecen control granular, analíticas, y herramientas de colaboración y administración robustas.</p>
+                </li>
+                 <li>
+                    <div class="feature-header">
+                        <span class="icon">🤖</span>
+                        <strong>Automatización Avanzada de Llamadas:</strong>
+                    </div>
+                    <p>Libera a tu equipo de llamadas repetitivas con nuestros bots de IA personalizables, permitiéndoles enfocarse en interacciones de mayor valor.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="pricing">
+            <h2>Planes y Precios Flexibles para Cada Necesidad</h2>
+            <p>Desde la productividad individual hasta la gestión completa de equipos, tenemos un plan para ti.</p>
+            <div class="pricing-plans">
+                <div class="plan">
+                    <h3>Esencial (Extensión Gmail)</h3>
+                    <div class="price">$0<span>/mes</span></div>
+                    <p>Ideal para probar la IA en tu Gmail.</p>
+                    <ul>
+                        <li>Asistente Redacción IA (límite XX)</li>
+                        <li>Creación Tareas IA (límite XX)</li>
+                        <li>Gestor Tareas Básico en Gmail</li>
+                        <li class="not-included">App Móvil Completa</li>
+                        <li class="not-included">Interacción por Voz Avanzada</li>
+                        <li class="not-included">Llamadas con Bots IA</li>
+                        <li class="not-included">Panel de Administración</li>
+                    </ul>
+                    <a href="#link-plan-gratuito" class="cta-button">🚀 Comienza Gratis</a>
+                </div>
+                <div class="plan popular"> <!-- Añadido 'popular' para destacar -->
+                    <h3>Pro (Individual Conectado)</h3>
+                    <div class="price">$14.99<span>/mes</span></div>
+                    <p>Para profesionales que buscan la máxima productividad personal en todos los canales.</p>
+                    <ul>
+                        <li><strong>Todo en Esencial, más:</strong></li>
+                        <li>Usos <strong>Ilimitados</strong> de IA en Gmail</li>
+                        <li><strong>App Móvil Completa</strong> (Grabación, Transcripción, Resúmenes IA)</li>
+                        <li>Sincronización Móvil-Web</li>
+                        <li>Interacción por Voz Básica (Notas, Tareas)</li>
+                        <li>Personalización IA Avanzada (Firestore)</li>
+                        <li class="not-included">Llamadas con Bots IA</li>
+                        <li class="not-included">Panel de Administración</li>
+                    </ul>
+                    <a href="#link-plan-pro" class="cta-button">✨ Elige Pro</a>
+                </div>
+                <div class="plan">
+                    <h3>Equipos / Business</h3>
+                    <div class="price">Contáctanos</div>
+                    <p>La solución completa para colaboración, control y automatización avanzada.</p>
+                    <ul>
+                        <li><strong>Todo en Pro, más:</strong></li>
+                        <li><strong>Panel de Administración</strong> completo</li>
+                        <li>Gestión Usuarios, Roles, Permisos</li>
+                        <li><strong>Interacción por Voz Avanzada</strong> (Consultas Admin, Iniciar Llamadas)</li>
+                        <li><strong>Llamadas con Bots IA</strong> personalizables</li>
+                        <li>Analíticas de Equipo Detalladas</li>
+                        <li>Fine-tuning de IA Centralizado</li>
+                        <li>Soporte Prioritario y SLAs</li>
+                    </ul>
+                    <a href="#link-plan-equipos" class="cta-button secondary">📞 Solicitar Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Preguntas Frecuentes (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question">1. ¿Cómo funciona la aplicación móvil de Intelli?</div>
+                <div class="faq-answer">
+                    <p>La app móvil de Intelli (disponible en planes Pro y superiores) te permite grabar tus llamadas telefónicas. Una vez finalizada la llamada, la app la transcribe automáticamente, identifica los diferentes hablantes (diarización) y puede generar un resumen con IA. También puedes crear tareas y notas asociadas a la llamada. Toda esta información se sincroniza con tu cuenta de Intelli para que puedas acceder a ella desde la extensión de Gmail o el panel web.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">2. ¿Qué puedo hacer con el asistente de voz?</div>
+                <div class="faq-answer">
+                    <p>El asistente de voz te permite interactuar con Intelli de forma conversacional. Puedes pedirle que cree tareas, te dé resúmenes de la actividad de un cliente (basado en emails y llamadas sincronizadas), consulte tu agenda de tareas, e incluso, en planes avanzados para administradores, inicie llamadas o consulte métricas del equipo. La funcionalidad varía según el plan.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">3. ¿Cómo funcionan las llamadas con bots de IA?</div>
+                <div class="faq-answer">
+                    <p>(Disponible en planes Business) Puedes configurar bots de IA para realizar llamadas salientes automatizadas. Por ejemplo, para enviar recordatorios de citas, realizar encuestas de satisfacción breves o hacer una cualificación inicial de leads. Defiendes el script y la lógica, y Intelli se encarga del resto, proporcionando transcripciones y análisis.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">4. ¿Mis datos de llamadas y voz están seguros?</div>
+                <div class="faq-answer">
+                    <p>Sí, la seguridad y privacidad de tus datos son fundamentales. Todas las grabaciones y transcripciones se manejan con encriptación y protocolos de seguridad robustos. Tienes control sobre los permisos de la app móvil (micrófono, contactos) y cómo se gestionan los datos de voz.</p>
+                </div>
+            </div>
+             <div class="faq-item">
+                <div class="faq-question">5. ¿La app móvil funciona offline?</div>
+                <div class="faq-answer">
+                    <p>Hemos diseñado la app móvil con un enfoque "offline-first" para funciones clave. Podrás grabar llamadas y notas incluso sin conexión. La transcripción completa por IA y la sincronización con la nube ocurrirán una vez que recuperes la conectividad, según tu configuración (ej. solo con Wi-Fi).</p>
+                </div>
+            </div>
+            <!-- MANTENER LAS FAQs ANTERIORES RELEVANTES y reordenar si es necesario -->
+            <div class="faq-item">
+                <div class="faq-question">6. ¿En qué navegadores funciona la extensión Intelli?</div>
+                <div class="faq-answer">
+                    <p>Intelli está actualmente disponible para Google Chrome y navegadores basados en Chromium como Microsoft Edge.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">7. ¿Puedo probar las funciones Pro o Business antes de pagar?</div>
+                <div class="faq-answer">
+                    <p>El Plan Esencial te permite probar las funciones básicas de la extensión de Gmail. Para los planes Pro y Business, ofrecemos demos personalizadas donde podemos mostrarte todo el potencial de la plataforma, incluyendo la app móvil y las funciones de voz. Contáctanos para agendar una.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" style="text-align:center; background-color: #004a7c; color: white; padding: 60px 20px;"> <!-- Color de fondo más oscuro para CTA final -->
+            <h2>Libera Todo el Poder de Tu Comunicación con Intelli</h2>
+            <p>Deja que la inteligencia artificial unificada trabaje para ti en tu email, móvil y con tu voz. Únete a profesionales y equipos que ya están transformando su productividad.</p>
+            <a href="#descarga-final" class="cta-button" style="background-color: #ffc107; color: #333;">🚀 Prueba Intelli Ahora</a>
+            <a href="#demo-final" class="cta-button secondary" style="background-color:transparent; color: #fff; border: 2px solid #ffc107;">📞 Agenda una Demo Personalizada</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Intelli. Todos los derechos reservados.</p>
+            <p>
+                <a href="#privacy">Política de Privacidad</a> | 
+                <a href="#terms">Términos de Servicio</a> | 
+                <a href="#contact">Contacto</a>
+            </p>
+            <div class="social-icons">
+                <!-- Reemplaza # con tus enlaces y usa iconos reales (ej: Font Awesome) -->
+                <a href="#" title="Twitter">X</a> 
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="Facebook">f</a>
+            </div>
+             <p><a href="#blog">Blog: Tips de Productividad y Comunicación IA</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // FAQ Toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other active FAQs in the same section
+                    const parentSection = question.closest('section'); // or item.closest('.faq-section') if you wrap them
+                    if (parentSection) {
+                        parentSection.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                            if (activeItem !== item) {
+                                activeItem.classList.remove('active');
+                            }
+                        });
+                    }
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for nav links
+            const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 70;
+            document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement){
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                        window.scrollTo({
+                             top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Update current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+
+            // --- Placeholder for hero visual - can be replaced with a slider or dynamic image ---
+            const heroVisual = document.querySelector('.hero-visual-placeholder img');
+            const heroImages = ['placeholder-hero-unified.png', 'placeholder-hero-mobile.png', 'placeholder-hero-gmail.png']; // Add more image paths
+            let currentImageIndex = 0;
+
+            /*
+            // Basic image switcher for hero (optional)
+            if (heroVisual && heroImages.length > 1) {
+                setInterval(() => {
+                    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+                    heroVisual.src = heroImages[currentImageIndex];
+                    heroVisual.alt = `Intelli Showcase ${currentImageIndex + 1}`;
+                }, 5000); // Change image every 5 seconds
+            }
+            */
+        });
+    </script>
+
+</body>
+</html>
