@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelli: Tu Plataforma de Comunicación Inteligente</title> <!-- Título actualizado -->
+    <title>Intelli: Tu Plataforma de Comunicación Inteligente</title>
     <style>
-        /* --- CSS ANTERIOR VA AQUÍ --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -30,15 +29,10 @@
             border-bottom: #0779e4 3px solid;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
         header .logo {
             font-size: 1.8rem;
             font-weight: bold;
         }
-
 
         nav {
             background: #444;
@@ -46,9 +40,9 @@
             padding: 0.5rem 0;
             text-align: center;
             margin-bottom: 20px;
-            position: sticky; /* Make nav sticky */
-            top: 0; /* Stick to the top */
-            z-index: 1000; /* Ensure it's above other content */
+            /* position: sticky; REMOVED */
+            /* top: 0; REMOVED */
+            /* z-index: 1000; REMOVED */
         }
 
         nav ul {
@@ -71,7 +65,6 @@
             color: #0779e4;
         }
 
-
         section {
             padding: 40px 20px;
             margin-bottom: 20px;
@@ -84,11 +77,11 @@
             background: linear-gradient(to right, #005aa7, #0779e4);
             color: #fff;
             text-align: center;
-            padding: 80px 20px 60px 20px; /* Increased top padding */
-            border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-            position: relative; /* For potential pseudo-elements or absolutely positioned items */
+            padding: 80px 20px 60px 20px;
+            border-radius: 0 0 8px 8px;
+            position: relative;
         }
-         .hero-visual-placeholder { /* Placeholder for hero image/video */
+         .hero-visual-placeholder {
             max-width: 600px;
             height: 300px;
             background: rgba(255,255,255,0.1);
@@ -99,12 +92,11 @@
             justify-content: center;
             font-style: italic;
         }
-        .hero-visual-placeholder img { /* Style for actual image */
+        .hero-visual-placeholder img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
-
 
         .hero h1 {
             font-size: 2.8rem;
@@ -121,44 +113,43 @@
 
         .cta-button {
             display: inline-block;
-            background: #ffc107; /* Yellow for primary CTA */
+            background: #ffc107;
             color: #333;
-            padding: 14px 28px; /* Slightly larger buttons */
+            padding: 14px 28px;
             text-decoration: none;
-            border-radius: 25px; /* More rounded buttons */
+            border-radius: 25px;
             font-weight: bold;
-            margin: 10px 5px; /* Increased margin */
+            margin: 10px 5px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .cta-button:hover {
             background: #e0a800;
-            transform: translateY(-2px); /* Slight lift on hover */
+            transform: translateY(-2px);
         }
 
         .cta-button.secondary {
-            background: transparent; /* Transparent secondary CTA */
+            background: transparent;
             color: #fff;
-            border: 2px solid #ffc107; /* Yellow border */
+            border: 2px solid #ffc107;
         }
         .cta-button.secondary:hover {
             background: #ffc107;
             color: #333;
         }
 
-
         h2 {
             color: #0779e4;
             text-align: center;
-            margin-bottom: 40px; /* Increased margin */
-            font-size: 2.4rem; /* Slightly larger */
+            margin-bottom: 40px;
+            font-size: 2.4rem;
         }
 
         h3 {
-            color: #1a5f7a; /* Darker shade of blue */
+            color: #1a5f7a;
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.9rem; /* Slightly larger */
+            font-size: 1.9rem;
         }
 
         ul {
@@ -172,8 +163,8 @@
         .feature-list {
             list-style: none;
             padding-left: 0;
-            display: grid; /* Using grid for better layout */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
         .feature-list li {
@@ -182,7 +173,7 @@
             margin-bottom: 10px;
             border-left: 5px solid #0779e4;
             border-radius: 4px;
-            display: flex; /* For icon and text alignment */
+            display: flex;
             flex-direction: column;
         }
         .feature-list .feature-header{
@@ -191,19 +182,18 @@
             margin-bottom: 10px;
         }
         .feature-list strong {
-            font-size: 1.4rem; /* Increased font size */
+            font-size: 1.4rem;
             color: #005aa7;
         }
-        .feature-list .icon { /* For icon suggestions */
-            font-size: 2em; /* Larger icons */
+        .feature-list .icon {
+            font-size: 2em;
             margin-right: 15px;
             color: #0779e4;
-            min-width: 30px; /* Ensure space for icon */
+            min-width: 30px;
         }
         .feature-list p {
             margin-bottom: 5px;
         }
-
 
         .how-it-works ol {
             list-style: none;
@@ -213,11 +203,11 @@
         .how-it-works li {
             counter-increment: step-counter;
             margin-bottom: 20px;
-            padding: 20px; /* Increased padding */
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
             position: relative;
-            padding-left: 60px; /* Space for the counter */
+            padding-left: 60px;
             background: #fff;
         }
         .how-it-works li::before {
@@ -228,25 +218,24 @@
             transform: translateY(-50%);
             background: #0779e4;
             color: white;
-            width: 35px; /* Larger counter */
-            height: 35px; /* Larger counter */
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             text-align: center;
             line-height: 35px;
             font-weight: bold;
             font-size: 1.1rem;
         }
-        /* Suggestion for GIF placeholder */
         .gif-placeholder {
             display: block;
             width: 100%;
-            max-width: 350px; /* Adjust as needed */
-            height: 200px; /* Adjust as needed */
+            max-width: 350px;
+            height: 200px;
             background: #e9ecef;
             border: 1px dashed #ccc;
             margin: 15px 0;
             text-align: center;
-            line-height: 200px; /* Vertically center text */
+            line-height: 200px;
             color: #777;
             border-radius: 4px;
         }
@@ -254,15 +243,14 @@
             text-align: center;
         }
         .mobile-app-showcase img {
-            max-width: 250px; /* Adjust as needed */
+            max-width: 250px;
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 15px; /* For a mobile screen look */
+            border-radius: 15px;
         }
 
-
         .testimonials {
-            background-color: #e9f5ff; /* Light blue background for testimonials */
+            background-color: #e9f5ff;
             padding: 40px 20px;
             border-radius: 8px;
         }
@@ -272,9 +260,9 @@
              gap: 20px;
         }
         .testimonial {
-            background: #fff; /* White background for individual testimonials */
+            background: #fff;
             padding: 25px;
-            margin-bottom: 0; /* Handled by grid gap */
+            margin-bottom: 0;
             border-radius: 8px;
             border-left: 5px solid #0779e4;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -289,13 +277,12 @@
             margin-top: 10px;
             color: #005aa7;
         }
-        .testimonial .profile-pic-placeholder { /* Placeholder for profile picture */
+        .testimonial .profile-pic-placeholder {
             width: 60px;
             height: 60px;
             background: #ccc;
             border-radius: 50%;
-            margin: 0 auto 10px auto; /* Center if text-align is center on parent */
-            /* Or float left for side by side with name */
+            margin: 0 auto 10px auto;
         }
 
         .pricing-plans {
@@ -308,20 +295,20 @@
             background: #fff;
             border: 1px solid #dee2e6;
             border-radius: 8px;
-            padding: 30px; /* Increased padding */
+            padding: 30px;
             text-align: center;
             flex: 1;
-            min-width: 280px; /* Minimum width for smaller screens */
-            max-width: 360px; /* Slightly wider max */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* More pronounced shadow */
+            min-width: 280px;
+            max-width: 360px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .plan:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-        .plan.popular { /* For highlighting a plan */
-            border-top: 5px solid #ffc107; /* Highlight color */
+        .plan.popular {
+            border-top: 5px solid #ffc107;
         }
 
         .plan h3 {
@@ -330,7 +317,7 @@
             font-size: 1.6rem;
         }
         .plan .price {
-            font-size: 2.8rem; /* Larger price */
+            font-size: 2.8rem;
             font-weight: bold;
             color: #333;
             margin: 15px 0;
@@ -351,22 +338,21 @@
             position: relative;
             font-size: 0.95rem;
         }
-        .plan ul li::before { /* Checkmark or cross */
-            content: '✓'; /* Default checkmark */
-            color: #28a745; /* Green */
+        .plan ul li::before {
+            content: '✓';
+            color: #28a745;
             position: absolute;
             left: 0;
             font-weight: bold;
         }
         .plan ul li.not-included::before {
-            content: '✕'; /* Cross for not included features */
-            color: #dc3545; /* Red */
+            content: '✕';
+            color: #dc3545;
         }
         .plan .cta-button {
             width: 80%;
             margin-top: 10px;
         }
-
 
         .faq-item {
             margin-bottom: 15px;
@@ -376,7 +362,7 @@
         }
         .faq-question {
             background: #f8f9fa;
-            padding: 15px 20px; /* Increased padding */
+            padding: 15px 20px;
             cursor: pointer;
             font-weight: bold;
             display: flex;
@@ -388,7 +374,7 @@
         .faq-question:hover {
             background: #e9ecef;
         }
-        .faq-question::after { /* Arrow indicator */
+        .faq-question::after {
             content: '▼';
             font-size: 0.9em;
             transition: transform 0.2s;
@@ -398,21 +384,20 @@
             transform: rotate(180deg);
         }
         .faq-answer {
-            padding: 0px 20px; /* Increased padding for active state */
+            padding: 0px 20px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smoother transition */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
             border-top: 1px solid #eee;
         }
         .faq-item.active .faq-answer {
             padding: 20px 20px;
-            max-height: 300px; /* Adjust if answers are very long */
+            max-height: 300px;
         }
 
-
         footer {
-            background: #2c3e50; /* Darker footer */
-            color: #ecf0f1; /* Lighter text */
+            background: #2c3e50;
+            color: #ecf0f1;
             text-align: center;
             padding: 30px 0;
             margin-top: 40px;
@@ -421,7 +406,7 @@
             margin: 8px 0;
         }
         footer a {
-            color: #3498db; /* Brighter link color */
+            color: #3498db;
             text-decoration: none;
         }
         footer a:hover {
@@ -430,7 +415,7 @@
         }
         .social-icons a {
             margin: 0 12px;
-            font-size: 1.8rem; /* Example size, replace with actual icons */
+            font-size: 1.8rem;
             color: #ecf0f1;
             transition: color 0.2s;
         }
@@ -438,8 +423,6 @@
             color: #3498db;
         }
 
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -455,7 +438,7 @@
                 align-items: center;
             }
             .plan {
-                width: 90%; /* Plans take more width on mobile */
+                width: 90%;
                 max-width: none;
             }
             nav ul li {
@@ -463,10 +446,10 @@
                 margin: 10px 0;
             }
             .feature-list {
-                grid-template-columns: 1fr; /* Stack features on mobile */
+                grid-template-columns: 1fr;
             }
             .testimonial-grid {
-                 grid-template-columns: 1fr; /* Stack testimonials on mobile */
+                 grid-template-columns: 1fr;
             }
         }
     </style>
@@ -475,7 +458,7 @@
 
     <header>
         <div class="container">
-            <div class="logo">Intelli  <!-- Puedes usar un SVG o una imagen para el logo --></div>
+            <div class="logo">Intelli</div>
         </div>
     </header>
      <nav>
@@ -483,7 +466,7 @@
             <ul>
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#features">Características</a></li>
-                <li><a href="#platform">Plataforma</a></li> <!-- Nuevo enlace -->
+                <li><a href="#platform">Plataforma</a></li>
                 <li><a href="#how-it-works">Cómo Funciona</a></li>
                 <li><a href="#use-cases">Casos de Uso</a></li>
                 <li><a href="#pricing">Planes</a></li>
@@ -491,7 +474,6 @@
             </ul>
         </div>
     </nav>
-
 
     <section id="hero" class="hero">
         <div class="container">
@@ -501,7 +483,6 @@
             <a href="#download-link-placeholder" class="cta-button">🚀 Prueba Intelli Gratis Ahora</a>
             <a href="#video-link-placeholder" class="cta-button secondary">🎥 Ver la Plataforma en Acción</a>
              <div class="hero-visual-placeholder">
-                <!-- Puedes usar una imagen que muestre una pantalla de Gmail, una app móvil y un icono de voz -->
                 <img src="placeholder-hero-unified.png" alt="Plataforma Intelli Unificada">
              </div>
         </div>
@@ -513,7 +494,7 @@
             <p>En el mundo actual, la comunicación es multicanal, pero nuestras herramientas suelen estar desconectadas, creando una batalla diaria:</p>
             <ul>
                 <li>🤯 **Sobrecarga de Emails y Notificaciones:** Cientos de correos, recordatorios de llamadas, tareas pendientes en diferentes sitios. Es difícil priorizar.</li>
-                <li>✍️ **Redacción Ineficiente:** Correos repetitivos, dificultad para encontrar el tono adecuado y el contexto correcto rápidamente.</li>
+                <li>✍️ **Redacción Ineficiente:** Correos repetitivos, dificultad para encontrar el tono adecuado y el contexto correcto rapidamente.</li>
                 <li>📞 **Gestión de Llamadas Aislada:** Transcripciones manuales, olvido de detalles importantes post-llamada, dificultad para convertir conversaciones en acciones.</li>
                 <li>💣 **Tareas Ocultas en Conversaciones:** Compromisos, fechas límite, preguntas importantes... enterrados en hilos de emails y notas de llamadas.</li>
                 <li>🔄 **Falta de Sincronización:** Información en tu email, otra en tu móvil, notas de voz por separado. Conectar los puntos es un trabajo en sí mismo.</li>
@@ -532,7 +513,6 @@
                 <li>La IA no solo entiende el texto, sino también el contexto de tus llamadas y fine-tunings, ofreciendo una **inteligencia verdaderamente personalizada y accionable** a través de todos los canales.</li>
             </ul>
             <p><strong>Intelli transforma tus herramientas de comunicación aisladas en un ecosistema cohesivo e inteligente, devolviéndote tiempo y enfoque.</strong></p>
-            <!-- Sugerencia visual: Un diagrama que muestre "Gmail" -> "App Móvil" -> "Voz" todos conectados a un "Núcleo IA Intelli" y "Firestore". -->
              <div class="gif-placeholder" style="max-width: 700px; height: 350px; line-height: 350px;">Diagrama del Ecosistema Intelli</div>
         </section>
 
@@ -558,7 +538,7 @@
                 </li>
                 <li>
                      <div class="feature-header">
-                        <span class="icon">📱</span> <!-- Icono de móvil -->
+                        <span class="icon">📱</span>
                         <strong>App Móvil Avanzada</strong>
                     </div>
                     <p><strong>Descripción:</strong> Graba llamadas, obtén transcripciones automáticas y diarizadas. Genera resúmenes IA y crea tareas directamente desde la app. Sincronización total con la web.</p>
@@ -566,7 +546,7 @@
                 </li>
                 <li>
                      <div class="feature-header">
-                        <span class="icon">🎙️</span> <!-- Icono de micrófono/voz -->
+                        <span class="icon">🎙️</span>
                         <strong>Interacción por Voz con IA</strong>
                     </div>
                     <p><strong>Descripción:</strong> Interactúa con tu asistente Intelli usando tu voz. Pide resúmenes de clientes, consulta tu carga de trabajo, crea tareas, e incluso inicia llamadas (bots IA o a contactos) – ideal para administradores y usuarios avanzados.</p>
@@ -574,7 +554,7 @@
                 </li>
                 <li>
                     <div class="feature-header">
-                        <span class="icon">🤖</span> <!-- Icono de bot/llamada automatizada -->
+                        <span class="icon">🤖</span>
                         <strong>Llamadas Potenciadas por IA (Bots)</strong>
                     </div>
                     <p><strong>Descripción:</strong> (Planes Avanzados) Programa y realiza llamadas salientes utilizando bots de IA configurables para tareas como recordatorios, encuestas o cualificación inicial. Transcripciones y análisis IA incluidos.</p>
@@ -582,7 +562,7 @@
                 </li>
                 <li>
                     <div class="feature-header">
-                        <span class="icon">🌐</span> <!-- Icono de conexión/sincronización -->
+                        <span class="icon">🌐</span>
                         <strong>Plataforma Unificada y Sincronizada</strong>
                     </div>
                     <p><strong>Descripción:</strong> Toda tu información – emails, tareas, resúmenes de llamadas, notas de voz – se sincroniza fluidamente entre la extensión de Gmail, la app móvil y el panel de administración web.</p>
@@ -597,18 +577,15 @@
             </ul>
         </section>
 
-        <!-- NUEVA SECCIÓN PARA DESTACAR LA PLATAFORMA -->
         <section id="platform">
             <h2>Una Plataforma, Múltiples Puntos de Acceso Inteligentes</h2>
             <p>Intelli no es solo una herramienta, es un ecosistema diseñado para tu productividad total. Tus datos y tu inteligencia artificial personalizada te acompañan dondequiera que trabajes.</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; text-align: center;">
                 <div style="flex: 1; min-width: 250px; padding:15px; background-color:#f0f8ff; border-radius:8px;">
-                    <!-- Icono de Gmail/Extensión -->
                     <h3>🚀 En Tu Gmail</h3>
                     <p>El corazón de tu comunicación diaria, ahora supercargado. Redacción asistida, creación de tareas, organización visual y mucho más, sin salir de tu bandeja de entrada.</p>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding:15px; background-color:#e6ffe6; border-radius:8px;">
-                     <!-- Icono de App Móvil -->
                     <h3>📱 En Tu Móvil</h3>
                     <p>Lleva la inteligencia contigo. Graba y transcribe llamadas, crea tareas, revisa resúmenes y mantente sincronizado estés donde estés. La productividad no se detiene.</p>
                       <div class="mobile-app-showcase">
@@ -617,14 +594,12 @@
                     </div>
                 </div>
                 <div style="flex: 1; min-width: 250px; padding:15px; background-color:#fff0e6; border-radius:8px;">
-                     <!-- Icono de Voz/Asistente -->
                     <h3>🗣️ Con Tu Voz</h3>
                     <p>La forma más natural de interactuar. Pide a tu asistente Intelli que gestione tareas, te dé información o inicie comunicaciones, todo mediante comandos de voz intuitivos.</p>
                 </div>
             </div>
             <p style="text-align:center; margin-top:30px;"><strong>Toda tu información, como tareas y contexto de cliente, se mantiene sincronizada y accesible a través de cada punto de contacto gracias a nuestra robusta arquitectura en Firestore.</strong></p>
         </section>
-
 
         <section id="how-it-works" class="how-it-works">
             <h2>¿Cómo Funciona Intelli? (Simple, Mágico y Conectado)</h2>
@@ -712,7 +687,7 @@
         <section id="differentiators">
             <h2>¿Por Qué Elegir la Plataforma Intelli?</h2>
             <p>Intelli va más allá de ser una simple herramienta, ofreciendo una solución integral:</p>
-            <ul class="feature-list" style="grid-template-columns: 1fr;"> <!-- Single column for differentiators for more text space -->
+            <ul class="feature-list" style="grid-template-columns: 1fr;">
                  <li>
                     <div class="feature-header">
                         <span class="icon">🌍</span>
@@ -770,7 +745,7 @@
                     </ul>
                     <a href="#link-plan-gratuito" class="cta-button">🚀 Comienza Gratis</a>
                 </div>
-                <div class="plan popular"> <!-- Añadido 'popular' para destacar -->
+                <div class="plan popular">
                     <h3>Pro (Individual Conectado)</h3>
                     <div class="price">$14.99<span>/mes</span></div>
                     <p>Para profesionales que buscan la máxima productividad personal en todos los canales.</p>
@@ -837,7 +812,6 @@
                     <p>Hemos diseñado la app móvil con un enfoque "offline-first" para funciones clave. Podrás grabar llamadas y notas incluso sin conexión. La transcripción completa por IA y la sincronización con la nube ocurrirán una vez que recuperes la conectividad, según tu configuración (ej. solo con Wi-Fi).</p>
                 </div>
             </div>
-            <!-- MANTENER LAS FAQs ANTERIORES RELEVANTES y reordenar si es necesario -->
             <div class="faq-item">
                 <div class="faq-question">6. ¿En qué navegadores funciona la extensión Intelli?</div>
                 <div class="faq-answer">
@@ -852,7 +826,7 @@
             </div>
         </section>
 
-        <section class="final-cta" style="text-align:center; background-color: #004a7c; color: white; padding: 60px 20px;"> <!-- Color de fondo más oscuro para CTA final -->
+        <section class="final-cta" style="text-align:center; background-color: #004a7c; color: white; padding: 60px 20px;">
             <h2>Libera Todo el Poder de Tu Comunicación con Intelli</h2>
             <p>Deja que la inteligencia artificial unificada trabaje para ti en tu email, móvil y con tu voz. Únete a profesionales y equipos que ya están transformando su productividad.</p>
             <a href="#descarga-final" class="cta-button" style="background-color: #ffc107; color: #333;">🚀 Prueba Intelli Ahora</a>
@@ -869,7 +843,6 @@
                 <a href="#contact">Contacto</a>
             </p>
             <div class="social-icons">
-                <!-- Reemplaza # con tus enlaces y usa iconos reales (ej: Font Awesome) -->
                 <a href="#" title="Twitter">X</a> 
                 <a href="#" title="LinkedIn">in</a>
                 <a href="#" title="Facebook">f</a>
@@ -885,8 +858,7 @@
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 question.addEventListener('click', () => {
-                    // Close other active FAQs in the same section
-                    const parentSection = question.closest('section'); // or item.closest('.faq-section') if you wrap them
+                    const parentSection = question.closest('section');
                     if (parentSection) {
                         parentSection.querySelectorAll('.faq-item.active').forEach(activeItem => {
                             if (activeItem !== item) {
@@ -899,19 +871,16 @@
             });
 
             // Smooth scroll for nav links
-            const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 70;
             document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if(targetElement){
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-                        window.scrollTo({
-                             top: offsetPosition,
-                            behavior: 'smooth'
+                        // Simple scroll to the element's top since nav is not sticky
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' 
                         });
                     }
                 });
@@ -920,20 +889,17 @@
             // Update current year in footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-
-            // --- Placeholder for hero visual - can be replaced with a slider or dynamic image ---
             const heroVisual = document.querySelector('.hero-visual-placeholder img');
-            const heroImages = ['placeholder-hero-unified.png', 'placeholder-hero-mobile.png', 'placeholder-hero-gmail.png']; // Add more image paths
+            const heroImages = ['placeholder-hero-unified.png', 'placeholder-hero-mobile.png', 'placeholder-hero-gmail.png']; 
             let currentImageIndex = 0;
 
             /*
-            // Basic image switcher for hero (optional)
             if (heroVisual && heroImages.length > 1) {
                 setInterval(() => {
                     currentImageIndex = (currentImageIndex + 1) % heroImages.length;
                     heroVisual.src = heroImages[currentImageIndex];
                     heroVisual.alt = `Intelli Showcase ${currentImageIndex + 1}`;
-                }, 5000); // Change image every 5 seconds
+                }, 5000); 
             }
             */
         });
